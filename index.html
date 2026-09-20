@@ -331,9 +331,9 @@
                         <h2 class="font-cinzel text-2xl font-bold text-royal-dark mb-1">CONFIRMER SA PRÉSENCE</h2>
                         <p class="text-neutral-600 font-serif text-xs mb-4">Inscrivez votre nom et choisissez votre personnage Disney !</p>
 
-                        <form id="rsvpForm" name="confirmations-anniversaire" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleRSVP(event)" class="space-y-3 text-left">
-                            <input type="hidden" name="form-name" value="confirmations-anniversaire">
-                            <p class="hidden" aria-hidden="true">
+                        <form id="rsvpForm" name="confirmations-anniversaire" method="POST" action="https://api.web3forms.com/submit">
+                            <input type="hidden" name="access_key" value="TA_CLÉ">
+                            <input type="hidden" name="subject" value="👑 Nouvelle confirmation - Shoupie Birthday">
                                 <label>Ne pas remplir ce champ : <input name="bot-field" tabindex="-1" autocomplete="off"></label>
                             </p>
                             <div>
