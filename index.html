@@ -401,8 +401,7 @@
                                     class="mt-4 px-6 py-3 rounded-full">
                                     ✨ Revoir l’invitation
                                     </button>
-
-                    </div>       
+      
                 </div>
             </section>
 
@@ -474,7 +473,7 @@
             document.getElementById(`scene-${currentScene}`).classList.add('hidden');
             currentScene = 1;
             document.getElementById('rsvp-form-container').classList.remove('hidden');
-            document.getElementById('rsvp-success').classList.add('hidden');
+            document.getElementById('confirmationMessage').classList.add('hidden');
             document.getElementById('rsvpForm').reset();
             document.getElementById('scene-1').classList.remove('hidden');
             lucide.createIcons();
