@@ -334,7 +334,11 @@
                         <form id="rsvpForm" name="confirmations-anniversaire" method="POST" action="https://api.web3forms.com/submit">
                             <input type="hidden" name="access_key" value="9eef287c-3a52-4e32-89f0-4beb2beb0195">
                             <input type="hidden" name="subject" value="👑 Nouvelle confirmation - Shoupie Birthday">
-                            
+                            <input type="text" name="name" required>
+                            <input type="email" name="email" required>
+                            <textarea name="message" required></textarea>
+                            <button type="submit">Submit Form</button>
+                            </form>
                             <label>Ne pas remplir ce champ : <input name="bot-field" tabindex="-1" autocomplete="off"></label>
                             </p>
                             <div>
