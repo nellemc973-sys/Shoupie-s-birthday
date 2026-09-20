@@ -334,11 +334,36 @@
                         <form id="rsvpForm" name="confirmations-anniversaire" method="POST" action="https://api.web3forms.com/submit">
                             <input type="hidden" name="access_key" value="9eef287c-3a52-4e32-89f0-4beb2beb0195">
                             <input type="hidden" name="subject" value="👑 Nouvelle confirmation - Shoupie Birthday">
-                            <input type="text" name="name" required>
-                            <input type="email" name="email" required>
-                            <textarea name="message" required></textarea>
-                            <button type="submit">Submit Form</button>
-                            </form>   
+                            <input type="text" name="name" placeholder="Ton prénom" required>
+                            <input type="email" name="email" placeholder="Ton e-mail" required>
+                            <textarea name="message" placeholder="Ton message" required></textarea>
+
+                            <button type="submit">👑 CONFIRMER MA PRÉSENCE</button>
+</form>
+
+                            <div id="confirmationMessage" style="display:none; text-align:center;">
+                            <h2>👑 LE DÉCRET EST SCELLÉ ! 👑</h2>
+
+                            <p>✨ Ta présence a bien été enregistrée. ✨</p>
+
+                            <p>
+                            Le Royaume a bien reçu ta confirmation
+                            et ta place pour le <strong>14 novembre 2026</strong>
+                            est désormais réservée. 🥂
+                            </p>
+
+                            <p>
+                            Prépare-toi à entrer dans une soirée
+                            où <strong>Shatta & Disney</strong> ne feront plus qu’un… 👑🔥
+                            </p>
+
+                            <p>🔒 Le lieu te sera révélé prochainement…</p>
+
+                            <p><strong>À très bientôt dans le Royaume ✨</strong></p>
+
+                            <p>— La Reine Shoupie 👑</p>
+                            </div>
+                            
                             <label>Ne pas remplir ce champ : <input name="bot-field" tabindex="-1" autocomplete="off"></label>
                             </p>
                             <div>
@@ -525,5 +550,39 @@
         }
         animateParticles();
     </script>
+document.getElementById("rsvpForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const confirmation = document.getElementById("confirmationMessage");
+    const button = form.querySelector("button");
+
+    button.disabled = true;
+    button.textContent = "✨ ENVOI EN COURS...";
+
+    try {
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        if (response.ok) {
+            form.style.display = "none";
+            confirmation.style.display = "block";
+        } else {
+            button.disabled = false;
+            button.textContent = "👑 CONFIRMER MA PRÉSENCE";
+            alert("Une erreur est survenue. Merci de réessayer.");
+        }
+    } catch (error) {
+        button.disabled = false;
+        button.textContent = "👑 CONFIRMER MA PRÉSENCE";
+        alert("Une erreur est survenue. Merci de réessayer.");
+    }
+});
+</script>
 </body>
 </html>
